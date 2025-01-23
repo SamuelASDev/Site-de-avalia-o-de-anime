@@ -1,0 +1,81 @@
+.titulo{
+    width: 99%;
+    margin-bottom: 1rem;
+}
+
+/* Centraliza o card e o formulário */
+#conteutoglobal {
+    background-color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: flex-start; /* Centraliza no topo */
+    min-height: 100vh; /* Garante que ocupe toda a altura da tela */
+}
+
+.postagem{
+    width: 70%;
+    height: 90%;
+}
+
+
+/* Estilos do Formulário de Cadastro */
+#form-cadastro {
+    width: 100%;
+    max-width: 600px; /* Limita o tamanho do formulário */
+    margin: 20px auto; /* Centraliza o formulário */
+    background-color: #ffffff; /* Fundo branco */
+    padding: 20px;
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+#form-cadastro .form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #333; /* Cor do texto */
+}
+
+#form-cadastro .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Borda cinza */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-bottom: 15px; /* Espaçamento entre os campos */
+    font-size: 14px; /* Tamanho da fonte */
+    box-sizing: border-box;
+}
+
+#form-cadastro .form-control:focus {
+    outline: none;
+    border-color: #007bff; /* Cor azul ao focar */
+    box-shadow: 0px 0px 4px rgba(0, 123, 255, 0.5); /* Sombra ao focar */
+}
+
+/* Botão do formulário */
+#form-cadastro .btn-primary {
+    display: block;
+    width: 100%; /* Ocupa toda a largura */
+    background-color: #007bff; /* Fundo azul */
+    color: white; /* Texto branco */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#form-cadastro .btn-primary:hover {
+    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #form-cadastro {
+        max-width: 90%; /* Diminui o tamanho em telas menores */
+    }
+}

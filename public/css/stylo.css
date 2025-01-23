@@ -1,0 +1,301 @@
+body {
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    background-color: #007BFF;
+    padding: 0;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    /* Esconde a seção "Animes Recentes" */
+    #destaques-container {
+      display: none;
+    }
+  
+    /* Exibe "Meus Animes" em layout de uma coluna */
+    #conteudo {
+      grid-template-columns: 1fr; /* Apenas 1 coluna */
+      gap: 10px; /* Espaço entre os itens */
+    }
+  
+    .postagem {
+      width: 100%; /* Ocupa toda a largura */
+      margin: 0 auto; /* Centraliza a postagem */
+    }
+  }
+
+#lupa{
+    width: 0.5rem;
+}
+
+#logo {
+    width: 100%;
+    background-color: black;
+}
+
+#header-animes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.titulo {
+    width: 77%;
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    margin: 0;
+    background: linear-gradient(90deg, #1E73BE, #54B952);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#destaques-container {
+    width: 16rem;
+    text-align: center;
+    background-color: #1E73BE;
+    color: white;
+    margin: 0;
+    padding: 1.3rem;
+}
+
+#sapo {
+    width: 20%;
+    margin-left: 10%;
+    margin-top: -2%;
+    margin-bottom: 2%;
+}
+
+#rodape {
+    width: 100%;
+    bottom: 0;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+#conteutoglobal{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: -4.2%;
+    background-color: white;
+}
+
+#conteudoTotal {
+    display: flex;
+}
+
+/* Meus Animes */
+#conteudo {
+    width: 100%; /* Preenche a largura disponível */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Máximo de 4 colunas */
+    gap: 20px; /* Espaçamento entre os itens */
+    padding: 20px; /* Espaçamento interno */
+    margin: 0 auto; /* Centraliza o conteúdo */
+}
+
+.postagem {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 400px;
+    overflow: hidden;
+}
+
+.postagem h2 {
+    font-size: 16px; /* Tamanho do título */
+    margin-bottom: 10px; /* Espaço abaixo do título */
+    color: #333; /* Cor do texto */
+}
+
+.img-postagem {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Animes Recentes */
+#login {
+    width: 27rem;
+    background-color: #F0F0F0;
+}
+
+#destaques {
+    margin-top: 0;
+    background-color: #1E73BE;
+    color: white;
+    display: block;
+    padding: 5%;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+}
+
+#conteudo-destaque h3 {
+    font-size: 16px;
+    color: #007bff;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#conteudo-destaque .postagem {
+    margin-bottom: 15px; /* Espaçamento entre os itens */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#conteudo-destaque .postagem h2 {
+    font-size: 14px;
+    color: black;
+    text-align: center;
+    margin-top: 5px;
+}
+
+#conteudo-destaque {
+    padding-left: 9%;
+    padding-right: 1%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px; /* Ajustado o espaçamento */
+}
+
+/* Botão Estilo Geral */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none; /* Remove o sublinhado */
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    text-decoration: none; /* Garante que o sublinhado não volte ao passar o mouse */
+}
+
+ul {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #54B952;
+    float: left;
+}
+
+ul li {
+    float: left;
+    color: white;
+}
+
+ul a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    line-height: 2em;
+    padding: 0 2em;
+}
+
+#navbar {
+    background-color: #007bff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  #navbar-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%; /* Adicionado para alinhamento */
+  }
+  
+  #navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+  }
+  
+  #navbar a:hover {
+    background-color: #0056b3;
+    border-radius: 5px;
+  }
+  
+  #navbar form {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+  
+  #navbar input[type="search"] {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 4px 0 0 4px;
+    border: none;
+    width: 100%; /* Ajusta para responsividade */
+  }
+  
+  #navbar button {
+    background-color: white;
+    border: none;
+    color: #007bff;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  #navbar button img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Botão "Hamburger" */
+  .menu-toggle {
+    display: none; /* Escondido em telas grandes */
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+.card-img-top {
+    width: 250px; /* Largura padrão */
+    height: 250px; /* Altura padrão */
+    object-fit: cover; /* Mantém o aspecto das imagens */
+  }
+
+  .list-group-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+
+  .ver-mais-container{
+    margin-top: 12rem;
+  }
