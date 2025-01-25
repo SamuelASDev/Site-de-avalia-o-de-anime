@@ -53,6 +53,32 @@
     background: linear-gradient(90deg, #1E73BE, #54B952);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+
+  .card-img-top {
+    width: 250px; /* Largura padrão */
+    height: 250px; /* Altura padrão */
+   /* Mantém o aspecto das imagens */
+  } 
+
+  .img-comentario {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Torna a imagem circular */
+    object-fit: cover; /* Garante que a imagem seja ajustada sem distorções */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    border-left: 5px solid #007bff;
+    margin-bottom: 15px;
+}
+
   </style>
 </head>
 <body>
@@ -61,7 +87,7 @@
 <nav id="navbar">
   <button class="menu-toggle" id="menuToggle">☰</button>
   <div id="navbar-container">
-    <a href="#">Perfil</a>
+    <a href="{{ route('perfil') }}">Perfil</a>
     <a href="{{ route('home') }}">Página Inicial</a>
     <a href="{{ route('anime.todos') }}">Todos os Animes</a>
     <form action="/search" method="GET">
@@ -105,7 +131,7 @@
         src="{{ asset(str_replace('public/', 'storage/', $anime->imagem_url)) }}" 
         class="card-img-top" 
         alt="{{ $anime->titulo }}"
-        style="max-width: 100%; max-height: 200px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        style="max-width: 100%; max-height: 200px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
       <h2>{{ $anime->titulo }}</h2>
       <p><strong>Resumo:</strong> {{ $anime->resumo }}</p>
       <p><strong>Data de Lançamento:</strong> {{ $anime->data_lancamento }}</p>
@@ -115,19 +141,36 @@
 
     <!-- Lista de Avaliações -->
     <div id="avaliacoes">
-      <h3 class="avaliacoes-titulo">Avaliações</h3>
-      @if($avaliacoes->isEmpty())
-        <p>Nenhuma avaliação encontrada para este anime.</p>
-      @else
-        @foreach($avaliacoes as $avaliacao)
-          <div class="alert">
-          <p><strong>Usuário:</strong> {{ $avaliacao->name }}</p>
-          <p><strong>Nota:</strong> {{ $avaliacao->pivot->NotaAnime }}</p>
-          <p><strong>Opinião:</strong> {{ $avaliacao->pivot->Opinião }}</p>
+  <h3 class="avaliacoes-titulo">Avaliações</h3>
+  @if($avaliacoes->isEmpty())
+    <p>Nenhuma avaliação encontrada para este anime.</p>
+  @else
+    @foreach($avaliacoes as $avaliacao)
+      <div class="alert">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <!-- Foto de perfil do usuário com link -->
+          <a href="{{ route('usuarios.show', $avaliacao->id) }}">
+            <img 
+              src="{{ asset(str_replace('public/', 'storage/', $avaliacao->imagem_perfil)) }}" 
+              class="img-comentario" 
+              alt="Foto de {{ $avaliacao->name }}">
+          </a>
+          <div>
+            <!-- Nome do usuário com link -->
+            <p>
+              <strong>Usuário:</strong> 
+              <a href="{{ route('usuarios.show', $avaliacao->id) }}">
+                {{ $avaliacao->name }}
+              </a>
+            </p>
+            <p><strong>Nota:</strong> {{ $avaliacao->pivot->NotaAnime }}</p>
+            <p><strong>Opinião:</strong> {{ $avaliacao->pivot->Opinião }}</p>
           </div>
-        @endforeach
-      @endif
-    </div>
+        </div>
+      </div>
+    @endforeach
+  @endif
+</div>
   </div>
 </div>
 

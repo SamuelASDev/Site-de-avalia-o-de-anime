@@ -283,10 +283,28 @@ ul a {
     cursor: pointer;
   }
 
-.card-img-top {
-    width: 250px; /* Largura padrão */
-    height: 250px; /* Altura padrão */
-    object-fit: cover; /* Mantém o aspecto das imagens */
+  .card-img-top {
+    width: 100%; /* A imagem preencherá 100% da largura do contêiner */
+    height: auto; /* Altura ajustada automaticamente para manter a proporção */
+    max-width: 250px; /* Largura máxima */
+    max-height: 250px; /* Altura máxima */
+    min-width: 150px; /* Largura mínima */
+    min-height: 150px; /* Altura mínima */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    background-color: #f0f0f0; /* Fundo cinza claro para imagens menores (opcional) */
+  }
+
+  .img-jotaro{
+    max-height: 150px;
+  }
+
+  @media (min-width: 1920px) {
+    .img-jotaro {
+        max-height: 250px; /* Aumenta o tamanho máximo da imagem */
+        max-width: 250px; /* Ajusta a largura máxima */
+       /* Mantém a proporção da imagem e corta excessos */
+    }
   }
 
   .list-group-item img {

@@ -11,7 +11,7 @@
 <nav id="navbar">
   <button class="menu-toggle" id="menuToggle">☰</button>
   <div id="navbar-container">
-    <a href="#">Perfil</a>
+    <a href="{{ route('perfil') }}">Perfil</a>
     <a href="{{ route('home') }}">Página Inicial</a>
     <a href="{{ route('anime.todos') }}">Todos os Animes</a>
     <form action="/search" method="GET">
@@ -60,7 +60,7 @@
               <a href="{{ route('anime.show', $anime->id) }}">
                 <img 
                   src="{{ asset(str_replace('public/', 'storage/', $anime->imagem_url)) }}" 
-                  class="card-img-top" 
+                  class="card-img-top img-jotaro" 
                   alt="{{ $anime->titulo }}">
               </a>
               <p><span class="Categoria">Nota: {{ $anime->pivot->NotaAnime }}</span></p>

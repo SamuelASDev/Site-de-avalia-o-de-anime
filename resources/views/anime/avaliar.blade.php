@@ -6,6 +6,15 @@
   <title>Avaliar: {{ $anime->titulo }}</title>
   <link rel="stylesheet" href="{{ asset('css/stylo.css') }}">
   <link rel="stylesheet" href="{{ asset('css/avaliacao.css') }}">
+
+  <style>
+    .card-img-top {
+    width: 250px; /* Largura padrão */
+    height: 250px; /* Altura padrão */
+   /* Mantém o aspecto das imagens */
+  } 
+
+  </style>
 </head>
 <body>
 
@@ -13,7 +22,7 @@
 <nav id="navbar">
   <button class="menu-toggle" id="menuToggle">☰</button>
   <div id="navbar-container">
-    <a href="#">Perfil</a>
+    <a href="{{ route('perfil') }}">Perfil</a>
     <a href="{{ route('home') }}">Página Inicial</a>
     <a href="{{ route('anime.todos') }}">Todos os Animes</a>
     <form action="/search" method="GET">
