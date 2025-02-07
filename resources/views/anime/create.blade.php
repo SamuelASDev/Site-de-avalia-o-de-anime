@@ -17,12 +17,6 @@
         <a href="{{ route('perfil') }}">Perfil</a>
         <a href="{{ route('home') }}">Página Inicial</a>
         <a href="{{ route('anime.todos') }}">Todos os Animes</a>
-        <form action="/search" method="GET">
-            <input type="search" name="query" placeholder="Pesquisar anime..." aria-label="Pesquisar">
-            <button type="submit">
-                <img id="lupa" src="{{ asset('images/lupa.png') }}" alt="lupa">
-            </button>
-        </form>
         <div>
             @guest
             <a href="{{ route('register') }}">Cadastro</a>
