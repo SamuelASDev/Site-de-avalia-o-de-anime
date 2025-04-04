@@ -1,10 +1,9 @@
 # 1. Clonar o projeto (caso ainda não tenha)
-git clone <url-do-repo>
-
-cd nome-do-projeto
 bash
-Copiar
-Editar
+"git clone <url-do-repo>"
+bash
+"cd nome-do-projeto"
+
 # 2. Instalar as dependências PHP
 composer install
 bash
