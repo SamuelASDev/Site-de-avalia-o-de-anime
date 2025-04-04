@@ -16,7 +16,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'imagem_perfil'
+        'imagem_perfil',
+        'nivel'
     ];
 
     public function animes()
