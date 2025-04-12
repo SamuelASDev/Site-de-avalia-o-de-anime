@@ -17,6 +17,13 @@
         <a href="{{ route('perfil') }}">Perfil</a>
         <a href="{{ route('home') }}">Página Inicial</a>
         <a href="{{ route('anime.todos') }}">Todos os Animes</a>
+
+        @auth
+            @if(auth()->user()->nivel === 'admin')
+                <a href="{{ route('adm.dashboard') }}">Dashboard ADM</a>
+            @endif
+        @endauth
+
         <div>
             @guest
             <a href="{{ route('register') }}">Cadastro</a>
@@ -31,6 +38,7 @@
         </div>
     </div>
 </nav>
+
 
 <!-- Logo -->
 <div id="logo">

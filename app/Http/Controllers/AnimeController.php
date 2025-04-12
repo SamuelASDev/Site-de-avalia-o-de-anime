@@ -80,4 +80,7 @@ class AnimeController extends Controller
         return redirect()->route('anime.avaliar', ['id' => $id])->with('success', 'Avaliação salva com sucesso!');
     }
 
+
+
+
 }

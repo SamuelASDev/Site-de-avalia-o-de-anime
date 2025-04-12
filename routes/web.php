@@ -8,6 +8,7 @@ use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\PerfilPublicoController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AdminController;
 
 Route::post('/logout', function () {
     Auth::logout(); 
@@ -38,3 +39,38 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil');
     Route::post('/perfil/upload-imagem', [PerfilController::class, 'uploadImagem'])->name('perfil.uploadImagem');
 });
+
+
+Route::delete('/anime/{id}', function($id) {
+    if (auth()->check() && auth()->user()->nivel !== 'admin') {
+        return redirect('/');  // Redireciona para a página inicial se não for admin
+    }
+    // Chama o método de destroy do controller
+    return app(AdminController::class)->destroy($id);
+})->name('anime.destroy');
+
+Route::get('/anime/{id}/edit', function($id) {
+    if (auth()->check() && auth()->user()->nivel !== 'admin') {
+        return redirect('/');  // Redireciona para a página inicial se não for admin
+    }
+    // Chama o método de edit do controller
+    return app(AdminController::class)->edit($id);
+})->name('anime.edit');
+
+Route::put('/anime/{id}', function($id) {
+    if (auth()->check() && auth()->user()->nivel !== 'admin') {
+        return redirect('/');  // Redireciona para a página inicial se não for admin
+    }
+    // Chama o método de update do controller
+    return app(AdminController::class)->update(request(), $id);
+})->name('anime.update');
+
+Route::get('/admin/dashboard', function() {
+    if (auth()->check() && auth()->user()->nivel !== 'admin') {
+        return redirect('/');  // Redireciona para a página inicial se não for admin
+    }
+    // Chama o método de dashboard do controller
+    return app(AdminController::class)->dashboard();
+})->name('adm.dashboard');
+
+

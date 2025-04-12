@@ -20,25 +20,33 @@
 
 <!-- Navbar -->
 <nav id="navbar">
-  <button class="menu-toggle" id="menuToggle">☰</button>
-  <div id="navbar-container">
-    <a href="{{ route('perfil') }}">Perfil</a>
-    <a href="{{ route('home') }}">Página Inicial</a>
-    <a href="{{ route('anime.todos') }}">Todos os Animes</a>
-    <div>
-      @guest
-      <a href="{{ route('register') }}">Cadastro</a>
-      <a href="{{ route('login') }}">Login</a>
-      @endguest
-      @auth
-      <form action="{{ route('logout') }}" method="POST" class="logout-form">
-        @csrf
-        <button type="submit">Sair</button>
-      </form>
-      @endauth
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <div id="navbar-container">
+        <a href="{{ route('perfil') }}">Perfil</a>
+        <a href="{{ route('home') }}">Página Inicial</a>
+        <a href="{{ route('anime.todos') }}">Todos os Animes</a>
+
+        @auth
+            @if(auth()->user()->nivel === 'admin')
+                <a href="{{ route('adm.dashboard') }}">Dashboard ADM</a>
+            @endif
+        @endauth
+
+        <div>
+            @guest
+            <a href="{{ route('register') }}">Cadastro</a>
+            <a href="{{ route('login') }}">Login</a>
+            @endguest
+            @auth
+            <form action="{{ route('logout') }}" method="POST" class="logout-form">
+                @csrf
+                <button type="submit">Sair</button>
+            </form>
+            @endauth
+        </div>
     </div>
-  </div>
 </nav>
+
 
 <!-- Logo -->
 <div id="logo">
