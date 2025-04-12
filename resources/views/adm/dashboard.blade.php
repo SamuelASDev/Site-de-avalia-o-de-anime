@@ -50,36 +50,42 @@
   </div>
     
     <!-- Tabela de Animes -->
-    <table class="anime-table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Título</th>
-          <th>Categoria</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach($animes as $anime)
-          <tr>
-            <td>{{ $anime->id }}</td>
-            <td>{{ $anime->titulo }}</td>
-            <td>{{ $anime->data_lancamento }}</td>
-            <td>
-             
-                <a href="{{ route('anime.edit', $anime->id) }}" class="btn-action btn-edit">Editar</a>
-                <a href="{{ route('anime.show', $anime->id) }}" class="btn-action btn-info">Info</a>
-                <form action="{{ route('anime.destroy', $anime->id) }}" method="POST" style="display:inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn-action btn-delete">Remover</button>
-                </form>
-              
-            </td>
-          </tr>
-        @endforeach
-      </tbody>
-    </table>
+<!-- Tabela de Animes -->
+<table class="anime-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Título</th>
+      <th>Categoria</th>
+      <th>Ações</th>
+    </tr>
+    <tr>
+      <!-- Primeira linha da tabela será o botão de cadastro -->
+      <th colspan="4" style="text-align: center;">
+        <a href="{{ route('anime.create') }}" class="btn-action btn-create">Cadastrar Novo Anime</a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach($animes as $anime)
+      <tr>
+        <td>{{ $anime->id }}</td>
+        <td>{{ $anime->titulo }}</td>
+        <td>{{ $anime->data_lancamento }}</td>
+        <td>
+          <a href="{{ route('anime.edit', $anime->id) }}" class="btn-action btn-edit">Editar</a>
+          <a href="{{ route('anime.show', $anime->id) }}" class="btn-action btn-info">Info</a>
+          <form action="{{ route('anime.destroy', $anime->id) }}" method="POST" style="display:inline;">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn-action btn-delete">Remover</button>
+          </form>
+        </td>
+      </tr>
+    @endforeach
+  </tbody>
+</table>
+
     
   </div>
 </div>
