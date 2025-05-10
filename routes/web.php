@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\PerfilPublicoController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
@@ -74,3 +75,24 @@ Route::get('/admin/dashboard', function() {
 })->name('adm.dashboard');
 
 
+// Rotas para usuários (protegidas por middleware admin)
+Route::get('/usuario/{usuario}/edit', function ($usuario) {
+    if (auth()->check() && auth()->user()->nivel !== 'admin') {
+        return redirect('/');  // Redireciona para a página inicial se não for admin
+    }
+    return app(UsuarioController::class)->edit($usuario); // Chama a função de editar
+})->name('usuario.edit');
+
+Route::put('/usuario/{usuario}', function ($usuario) {
+    if (auth()->check() && auth()->user()->nivel !== 'admin') {
+        return redirect('/');  // Redireciona para a página inicial se não for admin
+    }
+    return app(UsuarioController::class)->update(request(), $usuario); // Chama a função de atualizar
+})->name('usuario.update');
+
+Route::delete('/usuario/{usuario}', function ($usuario) {
+    if (auth()->check() && auth()->user()->nivel !== 'admin') {
+        return redirect('/');  // Redireciona para a página inicial se não for admin
+    }
+    return app(UsuarioController::class)->destroy($usuario); // Chama a função de remover
+})->name('usuario.destroy');

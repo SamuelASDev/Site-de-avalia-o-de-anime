@@ -1,23 +1,23 @@
 
 
 /* Tabela de Animes */
-.anime-table {
+.anime-table,  .usuario-table {
     width: 100%;
     border-collapse: collapse;
   }
   
-  .anime-table th, .anime-table td {
+  .anime-table th, .anime-table td, .usuario-table th, .usuario-table td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
   }
   
-  .anime-table th {
+  .anime-table th, .usuario-table th{
     background-color: #1E73BE;
     color: white;
   }
   
-  .anime-table tbody tr:hover {
+  .anime-table tbody tr:hover, .usuario-table  tbody tr:hover{
     background-color: #f1f1f1;
   }
   
@@ -58,7 +58,7 @@
   
   .titulo {
     width: 100%;
-    text-align: left;
+    text-align: center;
     font-size: 1.5em;
     font-weight: bold;
     color: white;
@@ -74,4 +74,9 @@
 .header-animes{
 padding-bottom: 20px;
 
+}
+
+.titulo.active {
+  font-weight: bold;
+  color: #f00; /* Altere para a cor que preferir */
 }

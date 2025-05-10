@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Anime;
 use App\Models\AnimeUsuario;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -23,9 +24,14 @@ class AdminController extends Controller
     {
         // Obtém todos os animes cadastrados
         $animes = Anime::all(); 
-
-        return view('adm.dashboard', compact('animes'));
+    
+        // Obtém todos os usuários cadastrados
+        $usuarios = User::all();
+    
+        // Retorna a view com os dados dos animes e usuários
+        return view('adm.dashboard', compact('animes', 'usuarios'));
     }
+    
 
     public function destroy($id)
     {
